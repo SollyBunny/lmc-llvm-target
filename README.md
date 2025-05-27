@@ -24,7 +24,7 @@ programs, and `compiler` which will take LLIR and compile it to (unoptimised) LM
 then be used to optimise it.)
 
 Once the project is at a suitable level of completeness I will include a CLI tool to compile and optimise code from
-inputs. For now, there is a program in `compiler/testing/compiler.go` that gives an incredibly simple example of how
+inputs. For now, there is a program in `compiler/testing/compile.go` that gives an incredibly simple example of how
 this tool may look. It does compilation and optimisation.
 
 The compiler is really simple. I mean, extremely basic. It performs rudimentary pattern matching on IR instructions,

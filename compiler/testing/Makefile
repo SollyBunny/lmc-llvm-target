@@ -7,6 +7,11 @@ CCFLAGS = -emit-llvm -nostdlib -S -I../ -O0
 
 COMPILED = ll/simple_example.ll ll/test.ll
 
+$(COMPILED): | ll
+
+ll:
+	mkdir -p ll
+
 ll/%.ll: c/%.c
 	$(CC) $< $(CCFLAGS) -o $@
 

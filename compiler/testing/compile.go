@@ -9,10 +9,20 @@ import (
 	"github.com/clr1107/lmc-llvm-target/lmc/optimisation"
 	"github.com/llir/llvm/asm"
 	"os"
+	"os/exec"
 	"strings"
 )
 
 func main() {
+	cmd := exec.Command("make", "ll/test.ll")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	err := cmd.Run()
+	if err != nil {
+		fmt.Printf("error running make: %s\n", err)
+		os.Exit(1)
+	}
+
 	mod, err := asm.ParseFile("ll/test.ll")
 	if err != nil {
 		fmt.Printf("error whilst parsing file: %s\n", err)
